@@ -7,19 +7,26 @@ namespace YourNamespace
     class Book
     {
         public int number ;
-        public string author = "null";
-        public string publisher = "null";
-        public string title = "null";
+        public string author ;
+        public string publisher ;
+        public string title ;
         public int stock;
         public double price;
 
         public static int taille;
-        /*
-        public Book(int Mainstock)
-        {
-           stock = Mainstock;
+        
+        public Book() { 
+
         }
-        */
+        public Book(Book B, int Mainstock) //Constructor 
+        {
+            this.stock = Mainstock;
+            this.number = B.number;
+            this.author = B.author;
+            this.title = B.title;
+            this.price = B.price;
+            this.publisher = B.publisher;
+        }
         
         public void Add(Book[] B, int i)
          {
@@ -305,21 +312,22 @@ namespace YourNamespace
                           Book.DeleteAuthor(B,name);  
                           Book.DisplayAll(B);
                     } break;
-                 /*
-                    case 9:
+                 case 9:
                     {    int i;//position of the book
                          int code;
                          int stock;
                          Console.WriteLine("---- Changing The Quantity in Stock ----");
-                         Console.WriteLine("Enter the Number of the book :");
+                         Console.Write("Enter the Number of the book :");
                          code = Convert.ToInt32(Console.ReadLine());
                          i = Book.Position(B, code);
-                         Console.Write("Enter The new Quantity in Stock :");
-                         stock = Convert.ToInt32(Console.ReadLine());
-                            
-                         Book.DisplayAll(B);
+                            if (i != -1)
+                            {
+                                Console.Write("Enter The new Quantity in Stock :");
+                                stock = Convert.ToInt32(Console.ReadLine());
+                                B[i] = new Book(B[i], stock);
+                                Book.DisplayAll(B);
+                            }
                     } break;
-                 */
                     default:
                         Console.WriteLine("Choix errone!!!");
                         break;
