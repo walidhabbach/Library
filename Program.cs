@@ -193,7 +193,7 @@ namespace YourNamespace
             Console.WriteLine("\t\t|   9 - Changing The Quantity in Stock              |");
             Console.WriteLine("\t\t --------------------------------------------------- ");
             try{
-                Console.Write("\t\t|    Votre choix :"); 
+                Console.Write("\t\t     Your Choice :");  
                 choix = Convert.ToInt16(Console.ReadLine());
             }catch(Exception e) { 
                 Console.WriteLine(e.Message);   
